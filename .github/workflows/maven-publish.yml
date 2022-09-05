@@ -32,11 +32,11 @@ jobs:
       run: 
             mvn -B test 
     - name: upload coverage to codecov
-      #uses: codecov/codecov-action@v3
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      run:  
-        curl -Os https://uploader.codecov.io/latest/linux/codecov
-        chmod +x codecov
-       ./codecov
+      uses: codecov/codecov-action@v3
+      #env:
+       # CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      #run:  
+       # curl -Os https://uploader.codecov.io/latest/linux/codecov
+        #chmod +x codecov
+       #./codecov
         
