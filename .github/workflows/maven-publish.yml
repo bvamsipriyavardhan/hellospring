@@ -27,14 +27,14 @@ jobs:
            mvn -B package --file pom.xml 
     - name: Install dependencies    
       run: 
-           mvn install -DskipTests=true -Dmaven.javadoc.skip=true -f -V
+           mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
     - name: Run Test and Collect Coverage
       run: 
-            mvn -f test 
+            mvn -B test 
     - name: upload coverage to codecov
       uses: codecov/codecov-action@v3
-      #env:
-       # CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       #run:  
        # curl -Os https://uploader.codecov.io/latest/linux/codecov
         #chmod +x codecov
