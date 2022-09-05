@@ -26,7 +26,8 @@ jobs:
       run: 
            mvn -B package --file pom.xml -Dmaven.test.skip=true
     - name: generate report codecov       
-      run: mvn cobertura:cobertura
+      run: 
+           mvn cobertura:cobertura
     - name: upload coverage
       if: success:
       run: 
