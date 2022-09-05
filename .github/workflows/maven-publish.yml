@@ -32,5 +32,11 @@ jobs:
       run: 
             mvn -B test 
     - name: upload coverage to codecov
-      uses: codecov/codecov-action@v3 
-    
+     # uses: codecov/codecov-action@v3 
+      if: success()
+      run: |
+       curl -s https://codecov.io/bash | bash
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      shell: bash  
+        
