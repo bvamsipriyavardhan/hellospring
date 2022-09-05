@@ -24,5 +24,13 @@ jobs:
         cache: maven
     - name: Build with Maven 
       run: 
-           mvn -B package --file pom.xml
-     
+           mvn -B package --file pom.xml -Dmaven.test.skip=true
+    - name: generate report codecov       
+      run: mvn cobertura:cobertura
+    - name: upload coverage
+      if: success:
+      run: 
+        curl -s https://codecov.io/bash | bash
+      env: 
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      shell: bash
