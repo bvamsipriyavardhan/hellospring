@@ -34,9 +34,9 @@ jobs:
       run: |
           curl -s https://codecov.io/bash | bash
       env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-          
-      shell: bash    
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}          
+      shell: bash
+      
    # - name: Install dependencies    
     #  run: 
      #      mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
